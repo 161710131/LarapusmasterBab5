@@ -22,6 +22,8 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/jquery.dataTables.css') }}" rel="stylesheet">
     <link href="{{ asset('css/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+    <link href="/css/selectize.css" rel="stylesheet">
+    <link href="/css/selectize.bootstrap4.css" rel="stylesheet">
     {{--  <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet">  --}}
     
 </head>
@@ -48,15 +50,9 @@
                             <li class="nav-item {{ Request::is('admin/authors') ? 'active ' : '' }}">
                                 <a class="nav-link" href="{{ route('authors.index') }}">Penulis</a>
                             </li>
-                            {{--  <li class="nav-item {{ Request::is('admin/books') ? 'active ' : '' }}">
+                            <li class="nav-item {{ Request::is('admin/books') ? 'active ' : '' }}">
                                 <a class="nav-link" href="{{ route('books.index') }}">Buku</a>
                             </li>
-                            <li class="nav-item {{ Request::is('admin/members') ? 'active ' : '' }}">
-                                <a class="nav-link" href="{{ route('members.index') }}">Member</a>
-                            </li>
-                            <li class="nav-item {{ Request::is('admin/statistics') ? 'active ' : '' }}">
-                                <a class="nav-link" href="{{ route('statistics.index') }}">Statistik</a>
-                            </li>  --}}
                             @endrole
                             @if (auth()->check())
                                 {{--  <li class="nav-item {{ Request::is('settings/profile') ? 'active ' : '' }}">
@@ -101,6 +97,7 @@
         </nav>
 
         <main class="py-4">
+            @include('layouts._flash')
             @yield('content')
         </main>
     </div>
@@ -108,6 +105,8 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/jquery.dataTables.min.js') }}"></script>
     <script src="{{ asset('js/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="/js/selectize.min.js"></script>
+    <script src="/js/custom.js"></script>
     @yield('scripts')
 </body>
 </html>
